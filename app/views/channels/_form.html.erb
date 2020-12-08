@@ -1,0 +1,27 @@
+
+<div class="column is-half ">
+  <article class="media box">
+    <div class="media-content">
+      
+
+      <%= simple_form_for(@channel) do |f| %>
+        <div class="field">
+          <%= f.label :name, class: "label" %>
+          <div class="control">            
+            <%= f.text_field :name, class: "input", placeholder: "Enter Name" %><br>            
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <%= f.submit class: "button is-link" %>
+          </div>
+          <div class="control">
+            <%= link_to "Cancel", shows_path, class: "button is-link is-light" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </article>
+</div>
+

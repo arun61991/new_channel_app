@@ -1,0 +1,61 @@
+
+<div class="column is-half ">
+  <article class="media box">
+    <div class="media-content">
+      <% if @show.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            <% @show.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_for(show) do |f| %>
+        <div class="field">
+          <%= f.label :title, class: "label" %>
+          <div class="control">            
+            <%= f.text_field :title, class: "input", placeholder: "Enter Title" %><br>            
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :channel, class: "label" %>
+          <div class="control">
+            <%= f.collection_select :channel_id, Channel.all, :id, :name, {:include_blank => true}, {class: "input"} %>
+          </div>
+        </div>
+
+        
+        <div class="field">
+          <%= f.label :time, class: "label" %>
+          <div class="control">            
+            <%= f.text_field :time, class: "input", id: "datetimepicker",placeholder: "Enter Day" %>
+          </div>
+        </div>
+
+        <%= f.hidden_field :created_by, value: current_user.id %>
+
+        <div class="field">
+          <%= f.label "Description", class: "label" %>
+          <div class="control">
+            <%= f.text_area :description, class:"textarea", placeholder: "Enter Discription" %><br>
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <%= f.submit class: "button is-link" %>
+          </div>
+          <div class="control">
+            <%= link_to "Cancel", shows_path, class: "button is-link is-light" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </article>
+</div>
+<script>
+  $('#datetimepicker').datetimepicker();
+</script>

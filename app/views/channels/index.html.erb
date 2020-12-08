@@ -1,0 +1,32 @@
+
+<% content_for :content do %>  
+  <div class="column is-half ">
+      
+
+
+    <% @channels.each do |channel| %>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-64x64">
+              <%= gravatar_image_tag(channel.name, size: 64) %>
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <strong><%= channel.name %></strong>
+              
+            </div>
+          </div>
+          <nav class="level">
+            <div class="level-left is-mobile">
+              <%= link_to 'Edit', edit_channel_path(channel) %>
+              <%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </nav>
+        </article>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
