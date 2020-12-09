@@ -58,4 +58,7 @@
 </div>
 <script>
   $('#datetimepicker').datetimepicker();
+  $("#datetimepicker").keyup(function(){
+    $("#datetimepicker").val("");
+  });
 </script>
