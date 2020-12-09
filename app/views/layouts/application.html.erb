@@ -57,6 +57,7 @@
 	  		</div>
 	  	</div>
   	</nav>
+    <% if current_user %>
   	<section class="section">
       <div class="container">
         <div class="columns">
@@ -143,6 +144,7 @@
         </div>    
       </div>
     </section>
+    <% end %>
 
     <%= yield %>
   </body>

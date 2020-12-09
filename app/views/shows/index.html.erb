@@ -35,7 +35,7 @@
           </div>
           <nav class="level">
             <div class="level-left is-mobile">
-              <% unless current_user.favorites.exists?(id: show.id) %>
+              <% unless current_user && current_user.favorites.exists?(id: show.id) %>
                 <%= link_to favorites_path(show_id: show.id), method: :post, class: "level-item" do %>
                 <!-- <span class="icon"><i class="fa fa-link" aria-hidden="true">Add to Faviriot</i></span> -->
                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-hand-thumbs-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
